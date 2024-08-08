@@ -3,7 +3,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-            <a href="{{ route('admin.profile.show') }}" class="d-block">{{ Auth::user()->name }}</a>
+            <a href="/" class="d-block">{{ Auth::user()->name }}</a>
         </div>
     </div>
 
@@ -36,7 +36,7 @@
             @endcan
 
             <li class="nav-item">
-            <a href="{{ route('admin.dashboard.index') }}" class="nav-link">
+            <a href="/" class="nav-link">
                     <i class="nav-icon fa fa-book"></i>
                     <p>
                         {{ __('Dashboard') }}
@@ -44,7 +44,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin.products.index') }}" class="nav-link">
+                <a href="/" class="nav-link">
                     <i class="nav-icon fa fa-book"></i>
                     <p>
                         {{ __('Produk') }}
@@ -53,7 +53,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('admin.pesanan.index') }}" class="nav-link">
+                <a href="/" class="nav-link">
                     <i class="nav-icon fa fa-book"></i>
                     <p>
                         {{ __('Pesanan') }}

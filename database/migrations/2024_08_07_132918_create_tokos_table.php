@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string("deskripsi");
             $table->string("lokasi");
             $table->string("alamat");
-            $table->foreignIdFor(User::class)->constrained();
+            $table->string("contact");
             $table->enum("kategori_toko", ["jasa", "barang"]);
+            $table->foreignIdFor(User::class)->constrained();
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class TokoController extends Controller
      */
     public function index()
     {
-        //
+        return view('toko.index');
     }
 
     /**
@@ -21,6 +21,7 @@ class TokoController extends Controller
     public function create()
     {
         //
+        return view('toko.create');
     }
 
     /**
@@ -29,6 +30,28 @@ class TokoController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'nama' => 'required|string|max:255',
+            'deskripsi' => 'required|string|max:255',
+            'lokasi' => 'required',
+            "alamat" => "required|max:255",
+            'kategori' => 'required',
+        ]);
+
+        // Get the selected product
+
+
+        // Create a new product instance and save it to the database
+        $newProduct = new Toko();
+        $newProduct->nama = $validated['nama'];
+        $newProduct->deskripsi = $validated['deskripsi']; // Assuming you have a product_id field 
+        $newProduct->lokasi = $validated['lokasi'];
+        $newProduct->alamat = $validated['alamat'];
+        $newProduct->user_id = auth()->id();
+        $newProduct->save();
+
+        // Redirect or return success message
+        return redirect()->route('toko.index')->with('success', 'Product created successfully!');
     }
 
     /**

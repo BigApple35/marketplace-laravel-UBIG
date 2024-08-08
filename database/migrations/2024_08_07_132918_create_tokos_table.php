@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use App\Models\User;
@@ -15,13 +14,13 @@ return new class extends Migration
     {
         Schema::create('tokos', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->constrained();
             $table->string("nama");
             $table->string("deskripsi");
             $table->string("lokasi");
             $table->string("alamat");
-            $table->foreignIdFor(User::class)->constrained();
+            $table->string("contact");
             $table->enum("kategori_toko", ["jasa", "barang"]);
+            $table->foreignIdFor(User::class)->constrained();
             $table->timestamps();
         });
     }
